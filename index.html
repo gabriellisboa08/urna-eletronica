@@ -10,18 +10,63 @@
     <body>
         <div class="container-wrapper">
             <div class="urna">
-                <div class="urna-info">...</div>
+                <div class="urna-info">
+                    <div id="seu-voto-para">SEU VOTO PARA</div>
+                    <div id="tipo-cargo">VEREADOR</div>
+                    <div id="numeros-digitados">
+                        <div class="num-digitado">1</div>
+                        <div  class="num-digitado">2</div>
+                        <div class="num-digitado">3</div>
+                        <div class="num-digitado">4</div>
+                        <div class="num-digitado">5</div>
+                    </div>
+                    <div id="info-candidatos">
+                        <div class="info-candidatos">Nome:<span></span></div>
+                        <div class="info-candidatos">Partido:<span></span></div>
+                    </div>
+                        <div id="imgs">
+                            <div class="imgs" id="img-prefeito">img Prefeito</div>
+                            <div class="imgs" id="img-vice-prefeito">img vice Prefeito</div>
+                        </div>
+                        
+                    <hr>
+                    <div id="legend">
+                        Aperte a tela: <br>
+                        CONFIRMA para CONFIRMAR este voto <br>
+                        CORRIGE para REINICIAR este voto
+                    </div>
+                </div>
                 <div class="urna-teclado">
-                    <button class="urna-teclado-num" id="num1" num='1'>1</button>
-                    <button class="urna-teclado-num" id="num2" num='2'>2</button>
-                    <button class="urna-teclado-num" id="num3" num='3'>3</button>
-                    <button class="urna-teclado-num" id="num4" num='4'>4</button>
-                    <button class="urna-teclado-num" id="num5" num='5'>5</button>
-                    <button class="urna-teclado-num" id="num6" num='6'>6</button>
-                    <button class="urna-teclado-num" id="num7" num='7'>7</button>
-                    <button class="urna-teclado-num" id="num8" num='8'>8</button>
-                    <button class="urna-teclado-num" id="num9" num='9'>9</button>
-                    <button class="urna-teclado-num" id="num0" num='0'>0</button>
+                    <button class="urna-teclado-num" id="num1" num="1">
+                        1
+                    </button>
+                    <button class="urna-teclado-num" id="num2" num="2">
+                        2
+                    </button>
+                    <button class="urna-teclado-num" id="num3" num="3">
+                        3
+                    </button>
+                    <button class="urna-teclado-num" id="num4" num="4">
+                        4
+                    </button>
+                    <button class="urna-teclado-num" id="num5" num="5">
+                        5
+                    </button>
+                    <button class="urna-teclado-num" id="num6" num="6">
+                        6
+                    </button>
+                    <button class="urna-teclado-num" id="num7" num="7">
+                        7
+                    </button>
+                    <button class="urna-teclado-num" id="num8" num="8">
+                        8
+                    </button>
+                    <button class="urna-teclado-num" id="num9" num="9">
+                        9
+                    </button>
+                    <button class="urna-teclado-num" id="num0" num="0">
+                        0
+                    </button>
 
                     <button id="urna-teclado-btns-branco">Branco</button>
                     <button id="urna-teclado-btns-corrige">Corrige</button>
@@ -29,6 +74,7 @@
                 </div>
             </div>
         </div>
+        <script src="candidatos.js"></script>
         <script src="main.js"></script>
     </body>
 </html>
