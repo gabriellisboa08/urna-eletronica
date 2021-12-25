@@ -14,57 +14,60 @@
                     <div id="seu-voto-para">SEU VOTO PARA</div>
                     <div id="tipo-cargo">VEREADOR</div>
                     <div id="numeros-digitados">
-                        <div class="num-digitado">1</div>
-                        <div  class="num-digitado">2</div>
-                        <div class="num-digitado">3</div>
-                        <div class="num-digitado">4</div>
-                        <div class="num-digitado">5</div>
+                        <div class="num-digitado pisca" id="num-digitado-1" ></div>
+                        <div class="num-digitado" id="num-digitado-2"></div>
+                        <div class="num-digitado" id="num-digitado-3"></div>
+                        <div class="num-digitado" id="num-digitado-4"></div>
+                        <div class="num-digitado" id="num-digitado-5"></div>
                     </div>
                     <div id="info-candidatos">
-                        <div class="info-candidatos">Nome:<span></span></div>
-                        <div class="info-candidatos">Partido:<span></span></div>
+                        <div class="info-candidatos">Nome: <span id="span-nome"></span></div>
+                        <div class="info-candidatos">Partido: <span id="span-partido"></span></div>
                     </div>
-                        <div id="imgs">
-                            <div class="imgs" id="img-prefeito">img Prefeito</div>
-                            <div class="imgs" id="img-vice-prefeito">img vice Prefeito</div>
+                    <div id="imgs">
+                        <div class="imgs" id="img-prefeito">img Prefeito</div>
+                        <div class="imgs" id="img-vice-prefeito">
+                            img vice Prefeito
                         </div>
-                        
-                    <hr>
+                    </div>
+
+                    <hr />
                     <div id="legend">
-                        Aperte a tela: <br>
-                        CONFIRMA para CONFIRMAR este voto <br>
+                        Aperte a tela: <br />
+                        CONFIRMA para CONFIRMAR este voto <br />
                         CORRIGE para REINICIAR este voto
                     </div>
                 </div>
                 <div class="urna-teclado">
-                    <button class="urna-teclado-num" id="num1" num="1">
+                    <button class="urna-teclado-num" id="num1" num="1" onclick="clickedNumber(1)">
                         1
                     </button>
-                    <button class="urna-teclado-num" id="num2" num="2">
+                    <button class="urna-teclado-num" id="num2" num="2" onclick="clickedNumber(2)">
                         2
                     </button>
-                    <button class="urna-teclado-num" id="num3" num="3">
+                    <button class="urna-teclado-num" id="num3" num="4" onclick="clickedNumber(3)">
                         3
                     </button>
-                    <button class="urna-teclado-num" id="num4" num="4">
+                    <button class="urna-teclado-num" id="num4" num="4" onclick="clickedNumber(4)">
                         4
                     </button>
-                    <button class="urna-teclado-num" id="num5" num="5">
+                    <button class="urna-teclado-num" id="num5" num="5"  onclick="clickedNumber(5)">
                         5
                     </button>
-                    <button class="urna-teclado-num" id="num6" num="6">
+                    <button class="urna-teclado-num" id="num6" num="6" onclick="clickedNumber(6)">
                         6
                     </button>
-                    <button class="urna-teclado-num" id="num7" num="7">
+                    <button class="urna-teclado-num" id="num7" num="7" onclick="clickedNumber(7)">
                         7
                     </button>
-                    <button class="urna-teclado-num" id="num8" num="8">
+                    <button class="urna-teclado-num" id="num8" num="8" onclick="clickedNumber(8)">
                         8
                     </button>
-                    <button class="urna-teclado-num" id="num9" num="9">
+                        <button class="urna-teclado-num" id="num9" num="9" onclick="clickedNumber(9)">
                         9
+                        </button>
                     </button>
-                    <button class="urna-teclado-num" id="num0" num="0">
+                    <button class="urna-teclado-num" id="num0" num="0" onclick="clickedNumber(0)">
                         0
                     </button>
 
