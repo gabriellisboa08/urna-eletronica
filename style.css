@@ -139,11 +139,17 @@ hr {
     border: solid 1px;
     height: 173px;
     width: 127px;
+    
+}
+#image-img-principal{
+    height: 100%;
+    width: 100%; 
 }
 #img-vice-prefeito {
     border: solid 1px;
     width: 110px;
     height: 163px;
+    display: none;
 }
 
 .pisca{

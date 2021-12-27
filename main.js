@@ -17,7 +17,7 @@ function clickedNumber(n) {
                 alert("voto nulo?");
             } else {
                 console.log(vereadorEscolhido);
-                mostrarCandidato(vereadorEscolhido); //17793
+                mostrarCandidato(vereadorEscolhido);
             }
         }
     }
@@ -26,9 +26,10 @@ function clickedNumber(n) {
 function mostrarCandidato(vereadorEscolhido) {
     let spanName = document.querySelector("#span-nome");
     let spanPartido = document.querySelector("#span-partido");
-    let imgPrincipal = document.querySelector("#img-prefeiro");
+    let imgPrincipal = document.querySelector("#img-prefeito");
 
-    console.log(spanName, spanPartido);
+    console.log(spanName, spanPartido, imgPrincipal);
     spanName.innerText = vereadorEscolhido[0].nome;
-    imgPrincipal.innerHTML = `<img src='${vereadorEscolhido[0].url}'></img>`;
+    imgPrincipal.innerHTML = `<img id="image-img-principal" src='${vereadorEscolhido[0].foto.url}'></img>`;
+    spanPartido.innerText = vereadorEscolhido[0].partido;
 }
