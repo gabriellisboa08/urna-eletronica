@@ -19,6 +19,8 @@
     padding: 45px;
 }
 .urna-info {
+    display: flex;
+    flex-direction: column;
     width: 70%;
     height: 100%;
     background-color: lightgray;
@@ -128,8 +130,15 @@
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+}#urna-info-candidatos{
+    border: 1px black;
+    height: 80%;
 }
-
+#urna-info-legend {
+    margin-top: 5px;
+    height: 20%;
+    /* display: none; */
+}
 hr {
     margin: 0px -25px;
     background-color: black;

@@ -11,9 +11,10 @@
         <div class="container-wrapper">
             <div class="urna">
                 <div class="urna-info">
-                    <div id="seu-voto-para">SEU VOTO PARA</div>
-                    <div id="tipo-cargo">VEREADOR</div>
-                    <div id="numeros-digitados">
+                    <div id="urna-info-candidatos">
+                        <div id="seu-voto-para">SEU VOTO PARA</div>
+                        <div id="tipo-cargo">VEREADOR</div>
+                        <div id="numeros-digitados">
                         <div class="num-digitado pisca" id="num-digitado-1" ></div>
                         <div class="num-digitado" id="num-digitado-2"></div>
                         <div class="num-digitado" id="num-digitado-3"></div>
@@ -29,14 +30,19 @@
                         <div class="imgs" id="img-vice-prefeito">
                             img vice Prefeito
                         </div>
+                    </div> 
                     </div>
+                   
 
-                    <hr />
+                    <div id="urna-info-legend">
                     <div id="legend">
+                        <hr>
                         Aperte a tela: <br />
                         CONFIRMA para CONFIRMAR este voto <br />
                         CORRIGE para REINICIAR este voto
                     </div>
+                    </div>
+                  
                 </div>
                 <div class="urna-teclado">
                     <button class="urna-teclado-num" id="num1" num="1" onclick="clickedNumber(1)">
@@ -72,11 +78,13 @@
                     </button>
 
                     <button id="urna-teclado-btns-branco">Branco</button>
-                    <button id="urna-teclado-btns-corrige">Corrige</button>
+                    <button id="urna-teclado-btns-corrige" onclick="corrige()">Corrige</button>
                     <button id="urna-teclado-btns-confirma">Confirma</button>
                 </div>
             </div>
         </div>
+        <audio id="audio-botão" src="audios/Urna-Eletrônica-botão(mp3cut.net).mp3"></audio>
+        <audio id="audio-botão-confirma" src="audios/Urna-Eletrônica-confirma(mp3cut.net).mp3"></audio>
         <script src="candidatos.js"></script>
         <script src="main.js"></script>
     </body>
