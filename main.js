@@ -4,13 +4,13 @@ const audioBotaoConfirma = document.querySelector("#audio-botão-confirma");
 let spanName = document.querySelector("#span-nome");
 let spanPartido = document.querySelector("#span-partido");
 let imgPrincipal = document.querySelector("#img-prefeito");
+let votos = [];
+let etapa = 1;
 
 function clickedNumber(n) {
-     audioBotao.play();
-    if (numero.length < 5) {
-        if(numero.length < 1) {
-
-        }
+    audioBotao.play();
+    if (etapa == 1) {
+        if (numero.length < 5) {
         let selectedElement = document.querySelector(".pisca");
         selectedElement.innerHTML = n;
         numero += n;
@@ -26,10 +26,32 @@ function clickedNumber(n) {
         if (vereadorEscolhido.length == 0) {
             alert("voto nulo?");
         } else {
-            console.log(vereadorEscolhido);
             mostrarCandidato(vereadorEscolhido);
         }
     }
+    }
+    if(etapa === 2) {
+        if(numero.length < 2) {
+            let selectedElement = document.querySelector(".pisca");
+            selectedElement.innerHTML = n;
+            numero += n;
+            selectedElement.classList.remove("pisca");
+            if (selectedElement.nextElementSibling != null) {
+                selectedElement.nextElementSibling.classList.add("pisca");
+            }
+        }
+        if (numero.length === 2) {
+            let candidatoEscolhido = prefeitos.filter(
+                (item) => item.nCandidatura == numero
+            );
+            if (candidatoEscolhido.length == 0) {
+                alert("voto nulo?");
+            } else {
+                mostrarCandidato(candidatoEscolhido);
+            }
+        }
+    }
+    
 }
 
 function mostrarCandidato(vereadorEscolhido) {
@@ -45,14 +67,33 @@ function corrige() {
     document
         .querySelectorAll(".num-digitado")
         .forEach((item) => (item.innerText = ""));
-    imgPrincipal.innerHTML = null
-    spanName.innerText = null
-    spanPartido.innerText = null
-    document.querySelector("#num-digitado-1").classList.add("pisca")
-    numero = ""
+    imgPrincipal.innerHTML = null;
+    spanName.innerText = null;
+    spanPartido.innerText = null;
+    document.querySelector("#num-digitado-1").classList.add("pisca");
+    numero = "";
 }
 
-function atualizandoVotoNulo() {
-    
-}
+function proximaEtapa(){
+    if(etapa === 1) {
+        document.querySelector("#tipo-cargo"
+        ).innerText = "PREFEITO"
+        let divsNumDigitados = document.querySelectorAll(".num-digitado");
+        console.log(divsNumDigitados);
+        for(let c = 5; c >= 0; c-- ) {
+            document
+                .querySelector("#numeros-digitados")
+                .removeChild(document.querySelector("#numeros-digitados").lastChild);
+        }
+        corrige()
+    etapa++    
+    }
+    if(etapa === 2 ) {
 
+    }
+
+
+}
+function confirma() {
+    proximaEtapa()
+}

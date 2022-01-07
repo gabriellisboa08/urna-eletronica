@@ -21,7 +21,12 @@ vereadores.push(
 );
 
 vereadores.push(
-    new Candidatos("54321", "João ladrão ", "pé de feijão", "img/prefeito-2.jpg")
+    new Candidatos(
+        "54321",
+        "Rosinha do Prado",
+        "pé de feijão",
+        "img/prefeito-2.jpg"
+    )
 );
 let candidatos = [];
 candidatos.push(prefeitos, vereadores);

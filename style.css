@@ -5,7 +5,7 @@
 }
 .container-wrapper {
     height: 100vh;
-    background-color: aqua;
+    background-color: black;
 }
 .urna {
     display: flex;
