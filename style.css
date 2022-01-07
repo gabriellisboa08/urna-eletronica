@@ -172,3 +172,31 @@ hr {
   to { opacity: 0.0; }
 }
 
+.progress-bar{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: 50%;
+    transform: (translate(-50% 0%));
+}
+#progress-bar{
+    background-color: green;
+    width: 100%;
+    min-height: 30px;
+    border: solid 1px black;
+    animation: progress-bar 3s;
+    
+}
+#gravando{
+    position: relative;
+    left: 50%;
+    text-align: center;
+    transform: translate(-50%, 0%);
+    margin: 1%;
+}
+
+@keyframes progress-bar {
+    0% { width: 0%; }
+    100% { width: 100%}  
+    
+}

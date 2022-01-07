@@ -5,33 +5,33 @@ let spanName = document.querySelector("#span-nome");
 let spanPartido = document.querySelector("#span-partido");
 let imgPrincipal = document.querySelector("#img-prefeito");
 let votos = [];
-let etapa = 1;
+let etapa = 2;
 
 function clickedNumber(n) {
     audioBotao.play();
     if (etapa == 1) {
         if (numero.length < 5) {
-        let selectedElement = document.querySelector(".pisca");
-        selectedElement.innerHTML = n;
-        numero += n;
-        selectedElement.classList.remove("pisca");
-        if (selectedElement.nextElementSibling != null) {
-            selectedElement.nextElementSibling.classList.add("pisca");
+            let selectedElement = document.querySelector(".pisca");
+            selectedElement.innerHTML = n;
+            numero += n;
+            selectedElement.classList.remove("pisca");
+            if (selectedElement.nextElementSibling != null) {
+                selectedElement.nextElementSibling.classList.add("pisca");
+            }
+        }
+        if (numero.length === 5) {
+            let vereadorEscolhido = vereadores.filter(
+                (item) => item.nCandidatura == numero
+            );
+            if (vereadorEscolhido.length == 0) {
+                alert("voto nulo?");
+            } else {
+                mostrarCandidato(vereadorEscolhido);
+            }
         }
     }
-    if (numero.length === 5) {
-        let vereadorEscolhido = vereadores.filter(
-            (item) => item.nCandidatura == numero
-        );
-        if (vereadorEscolhido.length == 0) {
-            alert("voto nulo?");
-        } else {
-            mostrarCandidato(vereadorEscolhido);
-        }
-    }
-    }
-    if(etapa === 2) {
-        if(numero.length < 2) {
+    if (etapa === 2) {
+        if (numero.length < 2) {
             let selectedElement = document.querySelector(".pisca");
             selectedElement.innerHTML = n;
             numero += n;
@@ -51,7 +51,6 @@ function clickedNumber(n) {
             }
         }
     }
-    
 }
 
 function mostrarCandidato(vereadorEscolhido) {
@@ -74,26 +73,36 @@ function corrige() {
     numero = "";
 }
 
-function proximaEtapa(){
-    if(etapa === 1) {
-        document.querySelector("#tipo-cargo"
-        ).innerText = "PREFEITO"
+function proximaEtapa() {
+    if (etapa === 1) {
+        document.querySelector("#tipo-cargo").innerText = "PREFEITO";
         let divsNumDigitados = document.querySelectorAll(".num-digitado");
         console.log(divsNumDigitados);
-        for(let c = 5; c >= 0; c-- ) {
+        for (let c = 5; c >= 0; c--) {
             document
                 .querySelector("#numeros-digitados")
-                .removeChild(document.querySelector("#numeros-digitados").lastChild);
+                .removeChild(
+                    document.querySelector("#numeros-digitados").lastChild
+                );
         }
-        corrige()
-    etapa++    
+        corrige();
     }
-    if(etapa === 2 ) {
-
+    if (etapa === 2) {
+        fim()
     }
-
-
+    etapa++
 }
 function confirma() {
-    proximaEtapa()
+    proximaEtapa();
+}
+
+function fim() {
+    let div = document.querySelector(".urna-info")
+    
+    div.innerHTML = ""
+    div.innerHTML =
+        "<div class='progress-bar'><div id='progress-bar'></div> <div id='gravando'>Gravando</div></div>";
+        div.style.padding = "10%"
+    
+
 }
