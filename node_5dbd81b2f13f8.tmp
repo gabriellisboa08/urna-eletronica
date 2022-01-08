@@ -24,10 +24,7 @@ function clickedNumber(n) {
                 (item) => item.nCandidatura == numero
             );
             if (vereadorEscolhido.length == 0) {
-                //aqui vou aplicar a informação de voto nulo
-                let div = document.querySelector("#info-candidatos");
-                div.innerHTML =
-                    "<div class='pisca' id='div-info-voto-nulo'>VOTO NULO</div>";
+                alert("voto nulo?");
             } else {
                 mostrarCandidato(vereadorEscolhido);
             }
@@ -68,9 +65,7 @@ function mostrarCandidato(candidatoEscolhido) {
 function corrige() {
     document
         .querySelectorAll(".num-digitado")
-        .forEach(
-            (item) => ((item.innerText = ""), item.classList.remove("pisca"))
-        );
+        .forEach((item) => (item.innerText = ""));
     imgPrincipal.innerHTML = null;
     spanName.innerText = null;
     spanPartido.innerText = null;
@@ -81,6 +76,7 @@ function corrige() {
 function proximaEtapa() {
     if (etapa === 1) {
         document.querySelector("#tipo-cargo").innerText = "PREFEITO";
+        
 
         for (let c = 5; c >= 0; c--) {
             document
@@ -97,29 +93,7 @@ function proximaEtapa() {
     etapa++;
 }
 function confirma() {
-    if (etapa == 1) {
-        let vereadorEscolhido = vereadores.filter(
-            (item) => item.nCandidatura == numero
-        );
-        if (vereadorEscolhido.length == 0) {
-            votos.push("Voto-Nulo");
-            console.log(votos);
-        } else {
-            votos.push(vereadorEscolhido);
-        }
-    }
-    if (etapa == 2) {
-        let candidatoEscolhido = prefeitos.filter(
-            (item) => item.nCandidatura == numero
-        );
-        if (candidatoEscolhido.length == 0) {
-            votos.push("Voto-Nulo");
-            console.log(votos);
-        } else {
-            votos.push(candidatoEscolhido);
-        }
-    }
-
+    console.log(numero)
     proximaEtapa();
 }
 
@@ -130,10 +104,10 @@ function fim() {
     div.innerHTML =
         "<div class='progress-bar'><div id='progress-bar'></div> <div id='gravando'>Gravando</div></div>";
     // div.style.padding = "10%";
-    setTimeout(() => {
-        div.innerHTML = "";
-        div.innerHTML = "<div id='div-fim'>FIM</div>";
-        audioBotaoConfirma.play();
-    }, 1500);
-    console.log(votos);
+    setTimeout(() => {div.innerHTML = ""
+    div.innerHTML = "<div id='div-fim'>FIM</div>"
+    audioBotaoConfirma.play();
+    }, 1500)
 }
+
+function aplicarVotos(){} 

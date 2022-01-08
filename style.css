@@ -130,9 +130,11 @@
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-}#urna-info-candidatos{
+}
+#urna-info-candidatos {
     border: 1px black;
     height: 80%;
+    position: relative;
 }
 #urna-info-legend {
     margin-top: 5px;
@@ -148,11 +150,10 @@ hr {
     border: solid 1px;
     height: 173px;
     width: 127px;
-    
 }
-#image-img-principal{
+#image-img-principal {
     height: 100%;
-    width: 100%; 
+    width: 100%;
 }
 #img-vice-prefeito {
     border: solid 1px;
@@ -161,33 +162,37 @@ hr {
     display: none;
 }
 
-.pisca{
+.pisca {
     -webkit-animation-name: blinker;
     -webkit-animation-iteration-count: infinite;
-    -webkit-animation-timing-function: cubic-bezier(.5, 0, 1, 1);
+    -webkit-animation-timing-function: cubic-bezier(0.5, 0, 1, 1);
     -webkit-animation-duration: 1s;
 }
 @-webkit-keyframes blinker {
-  from { opacity: 1.0; }
-  to { opacity: 0.0; }
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
 }
 
-.progress-bar{
+.progress-bar {
     display: flex;
     flex-direction: column;
     position: relative;
     top: 50%;
     transform: (translate(-50% 0%));
 }
-#progress-bar{
+#progress-bar {
     background-color: green;
-    width: 100%;
+    width: 95%;
     min-height: 30px;
     border: solid 1px black;
-    animation: progress-bar 3s;
-    
+    animation: progress-bar 1.5s;
+    margin-left: 2%;
 }
-#gravando{
+#gravando {
     position: relative;
     left: 50%;
     text-align: center;
@@ -196,7 +201,24 @@ hr {
 }
 
 @keyframes progress-bar {
-    0% { width: 0%; }
-    100% { width: 100%}  
-    
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 95%;
+    }
+}
+#div-fim {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    font-size: 5em;
+}
+#div-info-voto-nulo{
+    position: absolute;
+    top: 90%;
+    font-size: 3em;
+    transform: translate(-0%, -90%);
 }
