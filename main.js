@@ -6,6 +6,37 @@ let spanPartido = document.querySelector("#span-partido");
 let imgPrincipal = document.querySelector("#img-prefeito");
 let votos = [];
 let etapa = 1;
+document.addEventListener ('keypress', (event) => {
+    const keyName = event.key;
+
+    switch(keyName){
+        case "1": clickedNumber(keyName)
+        break
+        case "2": clickedNumber(keyName)
+        break
+        case "3": clickedNumber(keyName)
+        break
+        case "4": clickedNumber(keyName)
+        break
+        case "5": clickedNumber(keyName)
+        break
+        case "6": clickedNumber(keyName)
+        break
+        case "7": clickedNumber(keyName)
+        break
+        case "8": clickedNumber(keyName)
+        break
+        case "9": clickedNumber(keyName)
+        break
+        case "0": clickedNumber(keyName)
+        break
+        case "Enter" : confirma()
+        break
+        default: 
+        return
+
+    }
+})
 
 function clickedNumber(n) {
     audioBotao.play();
