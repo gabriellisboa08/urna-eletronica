@@ -6,37 +6,50 @@ let spanPartido = document.querySelector("#span-partido");
 let imgPrincipal = document.querySelector("#img-prefeito");
 let votos = [];
 let etapa = 1;
-document.addEventListener ('keypress', (event) => {
+let branco = false;
+let nulo = false;
+
+document.addEventListener("keypress", (event) => {
     const keyName = event.key;
 
-    switch(keyName){
-        case "1": clickedNumber(keyName)
-        break
-        case "2": clickedNumber(keyName)
-        break
-        case "3": clickedNumber(keyName)
-        break
-        case "4": clickedNumber(keyName)
-        break
-        case "5": clickedNumber(keyName)
-        break
-        case "6": clickedNumber(keyName)
-        break
-        case "7": clickedNumber(keyName)
-        break
-        case "8": clickedNumber(keyName)
-        break
-        case "9": clickedNumber(keyName)
-        break
-        case "0": clickedNumber(keyName)
-        break
-        case "Enter" : confirma()
-        break
-        default: 
-        return
-
+    switch (keyName) {
+        case "1":
+            clickedNumber(keyName);
+            break;
+        case "2":
+            clickedNumber(keyName);
+            break;
+        case "3":
+            clickedNumber(keyName);
+            break;
+        case "4":
+            clickedNumber(keyName);
+            break;
+        case "5":
+            clickedNumber(keyName);
+            break;
+        case "6":
+            clickedNumber(keyName);
+            break;
+        case "7":
+            clickedNumber(keyName);
+            break;
+        case "8":
+            clickedNumber(keyName);
+            break;
+        case "9":
+            clickedNumber(keyName);
+            break;
+        case "0":
+            clickedNumber(keyName);
+            break;
+        case "Enter":
+            confirma();
+            break;
+        default:
+            return;
     }
-})
+});
 
 function clickedNumber(n) {
     audioBotao.play();
@@ -56,9 +69,7 @@ function clickedNumber(n) {
             );
             if (vereadorEscolhido.length == 0) {
                 //aqui vou aplicar a informação de voto nulo
-                let div = document.querySelector("#info-candidatos");
-                div.innerHTML =
-                    "<div class='pisca' id='div-info-voto-nulo'>VOTO NULO</div>";
+                infoVotoNulo();
             } else {
                 mostrarCandidato(vereadorEscolhido);
             }
@@ -79,7 +90,7 @@ function clickedNumber(n) {
                 (item) => item.nCandidatura == numero
             );
             if (candidatoEscolhido.length == 0) {
-                alert("voto nulo?");
+                infoVotoNulo();
             } else {
                 mostrarCandidato(candidatoEscolhido);
             }
@@ -107,6 +118,14 @@ function corrige() {
     spanPartido.innerText = null;
     document.querySelector("#num-digitado-1").classList.add("pisca");
     numero = "";
+    if (document.querySelector(".div-removivel") != null) {
+        let div = document.querySelector("#info-candidatos");
+        let divFilho = document.querySelector(".div-removivel");
+        div.removeChild(divFilho)
+    }
+    if (document.querySelector("#info-candidatos").children.length != 2) {
+        criarDivNomePartido();
+    }
 }
 
 function proximaEtapa() {
@@ -129,42 +148,95 @@ function proximaEtapa() {
 }
 function confirma() {
     if (etapa == 1) {
-        let vereadorEscolhido = vereadores.filter(
-            (item) => item.nCandidatura == numero
-        );
-        if (vereadorEscolhido.length == 0) {
-            votos.push("Voto-Nulo");
-            console.log(votos);
+        if (branco == true) {
+            votos.push("voto-em-branco");
         } else {
-            votos.push(vereadorEscolhido);
+            let vereadorEscolhido = vereadores.filter(
+                (item) => item.nCandidatura == numero
+            );
+            if (vereadorEscolhido.length == 0) {
+                votos.push("Voto-Nulo");
+                console.log(votos);
+            } else {
+                votos.push(vereadorEscolhido);
+            }
         }
     }
     if (etapa == 2) {
-        let candidatoEscolhido = prefeitos.filter(
-            (item) => item.nCandidatura == numero
-        );
-        if (candidatoEscolhido.length == 0) {
-            votos.push("Voto-Nulo");
-            console.log(votos);
+        if (branco == true) {
+            votos.push("voto-em-branco");
         } else {
-            votos.push(candidatoEscolhido);
+            let candidatoEscolhido = prefeitos.filter(
+                (item) => item.nCandidatura == numero
+            );
+            if (candidatoEscolhido.length == 0) {
+                votos.push("Voto-Nulo");
+                console.log(votos);
+            } else {
+                votos.push(candidatoEscolhido);
+            }
         }
     }
 
     proximaEtapa();
+    branco = false;
 }
 
+function choosenBranco() {
+    let div = document.querySelector("#info-candidatos");
+    let filho = div.children;
+    div.removeChild(filho[0]);
+    div.removeChild(filho[0]);
+    let newFilho = document.createElement("div");
+    newFilho.classList.add("pisca");
+    newFilho.classList.add("div-removivel")
+    newFilho.setAttribute("id", "div-voto-branco");
+    newFilho.innerText = "VOTO EM BRANCO";
+    div.appendChild(newFilho);
+    branco = true;
+}
 function fim() {
     let div = document.querySelector(".urna-info");
-
     div.innerHTML = "";
     div.innerHTML =
         "<div class='progress-bar'><div id='progress-bar'></div> <div id='gravando'>Gravando</div></div>";
-    // div.style.padding = "10%";
     setTimeout(() => {
         div.innerHTML = "";
         div.innerHTML = "<div id='div-fim'>FIM</div>";
         audioBotaoConfirma.play();
     }, 1500);
     console.log(votos);
+}
+
+function criarDivNomePartido() {
+    let div = document.querySelector("#info-candidatos");
+    let filho1 = document.createElement("div");
+    filho1.classList.add("info-candidatos");
+    filho1.innerText = "Nome:";
+    let filho2 = document.createElement("div");
+    filho2.classList.add("info-candidatos");
+    filho2.innerText = "Partido:";
+    let filho1_1 = document.createElement("span");
+    filho1_1.setAttribute("id", "span-nome");
+    let filho1_2 = document.createElement("span");
+    filho1_2.setAttribute("id", "span-partido");
+    filho1.appendChild(filho1_1);
+    filho2.appendChild(filho1_2);
+    div.appendChild(filho1);
+    div.appendChild(filho2);
+}
+
+function infoVotoNulo() {
+    let urnaCandidatos = document.querySelector("#info-candidatos");
+    console.log(urnaCandidatos.children);
+    let filhos = urnaCandidatos.children;
+    console.log(filhos);
+    urnaCandidatos.removeChild(filhos[0]);
+    urnaCandidatos.removeChild(filhos[0]);
+    let divVotoNulo = document.createElement("div");
+    divVotoNulo.classList.add("pisca");
+    divVotoNulo.classList.add("div-removivel");
+    divVotoNulo.setAttribute("id", "div-info-voto-nulo");
+    divVotoNulo.innerText = "VOTO NULO";
+    urnaCandidatos.appendChild(divVotoNulo);
 }
