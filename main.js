@@ -161,6 +161,8 @@ function confirma() {
                 votos.push(vereadorEscolhido);
             }
         }
+        // document.querySelector("#img-vice-prefeito").style.display = "block";
+
     }
     if (etapa == 2) {
         if (branco == true) {
@@ -174,6 +176,8 @@ function confirma() {
                 console.log(votos);
             } else {
                 votos.push(candidatoEscolhido);
+                console.log(votos)
+                chamarComprovante(votos);
             }
         }
     }
@@ -240,3 +244,17 @@ function infoVotoNulo() {
     divVotoNulo.innerText = "VOTO NULO";
     urnaCandidatos.appendChild(divVotoNulo);
 }
+
+function chamarComprovante(candidatoEscolhido) {
+    let spanComprovanteVereador = document.querySelector(
+        "#span-comprovante-vereador"
+    ); 
+    let spanComprovantePrefeito = document.querySelector(
+        "#span-comprovante-prefeito"
+    );
+    spanComprovanteVereador.innerText = candidatoEscolhido[0][0].nome
+    spanComprovantePrefeito.innerText = candidatoEscolhido[1][0].nome
+    let divMainComprovante = document.querySelector("#comprovante-wrapper")
+    divMainComprovante.style.display = "flex"
+}
+

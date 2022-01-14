@@ -222,3 +222,54 @@ hr {
     font-size: 3em;
     transform: translate(-0%, -90%);
 }
+#comprovante-wrapper {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(15, 10, 10, 0.651);
+    position: absolute;
+    left: 0;
+    top :0;
+    display: none;
+    font-size: 30px;
+    animation: unfoldIn 1s cubic-bezier(0.165, 0.840, 0.440, 1.000)
+}
+
+#div-comprovante{
+    background-color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 350px;
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    text-align: center;
+    justify-content: space-around;
+
+}.hr-comprovante {
+    width: 100%;
+    position: relative;
+    left: 25px;
+    border: 0;
+    border-top: 2px dashed white;
+    
+    
+}
+.span-comprovante {
+    text-align: center;
+
+}
+
+@keyframes unfoldIn {
+  0% {
+    transform:scaleY(.005) scaleX(0);
+  }
+  50% {
+    transform:scaleY(.005) scaleX(1);
+  }
+  100% {
+    transform:scaleY(1) scaleX(1);
+  }
+}
