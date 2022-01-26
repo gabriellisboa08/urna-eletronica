@@ -10,6 +10,7 @@ let branco = false;
 let nulo = false;
 
 document.addEventListener("keypress", (event) => {
+    //aplicando os eventos do teclado
     const keyName = event.key;
 
     switch (keyName) {
@@ -52,6 +53,9 @@ document.addEventListener("keypress", (event) => {
 });
 
 function clickedNumber(n) {
+    if( branco == true) {
+        corrige() // este bloco faz com que o branco desapareça assim que clicamos no número
+    }
     audioBotao.play();
     if (etapa == 1) {
         if (numero.length < 5) {
@@ -118,10 +122,11 @@ function corrige() {
     spanPartido.innerText = null;
     document.querySelector("#num-digitado-1").classList.add("pisca");
     numero = "";
+    branco = false;
     if (document.querySelector(".div-removivel") != null) {
         let div = document.querySelector("#info-candidatos");
         let divFilho = document.querySelector(".div-removivel");
-        div.removeChild(divFilho)
+        div.removeChild(divFilho);
     }
     if (document.querySelector("#info-candidatos").children.length != 2) {
         criarDivNomePartido();
@@ -162,11 +167,11 @@ function confirma() {
             }
         }
         // document.querySelector("#img-vice-prefeito").style.display = "block";
-
     }
     if (etapa == 2) {
         if (branco == true) {
             votos.push("voto-em-branco");
+
         } else {
             let candidatoEscolhido = prefeitos.filter(
                 (item) => item.nCandidatura == numero
@@ -174,10 +179,11 @@ function confirma() {
             if (candidatoEscolhido.length == 0) {
                 votos.push("Voto-Nulo");
                 console.log(votos);
+            
             } else {
                 votos.push(candidatoEscolhido);
-                console.log(votos)
-                chamarComprovante(votos);
+                console.log(votos);
+                
             }
         }
     }
@@ -187,13 +193,17 @@ function confirma() {
 }
 
 function choosenBranco() {
+    corrige()
+    if(branco == true) {
+        return
+    }
     let div = document.querySelector("#info-candidatos");
     let filho = div.children;
     div.removeChild(filho[0]);
     div.removeChild(filho[0]);
     let newFilho = document.createElement("div");
     newFilho.classList.add("pisca");
-    newFilho.classList.add("div-removivel")
+    newFilho.classList.add("div-removivel");
     newFilho.setAttribute("id", "div-voto-branco");
     newFilho.innerText = "VOTO EM BRANCO";
     div.appendChild(newFilho);
@@ -210,6 +220,8 @@ function fim() {
         audioBotaoConfirma.play();
     }, 1500);
     console.log(votos);
+    chamarComprovante(votos);
+    
 }
 
 function criarDivNomePartido() {
@@ -246,15 +258,23 @@ function infoVotoNulo() {
 }
 
 function chamarComprovante(candidatoEscolhido) {
-    let spanComprovanteVereador = document.querySelector(
+    setTimeout(() => {
+      let spanComprovanteVereador = document.querySelector(
         "#span-comprovante-vereador"
-    ); 
+    );
     let spanComprovantePrefeito = document.querySelector(
         "#span-comprovante-prefeito"
     );
-    spanComprovanteVereador.innerText = candidatoEscolhido[0][0].nome
-    spanComprovantePrefeito.innerText = candidatoEscolhido[1][0].nome
-    let divMainComprovante = document.querySelector("#comprovante-wrapper")
-    divMainComprovante.style.display = "flex"
+        spanComprovanteVereador.innerText =
+            candidatoEscolhido[0][0].nome != null
+                ? candidatoEscolhido[0][0].nome
+                : candidatoEscolhido[0];
+    spanComprovantePrefeito.innerText =
+        candidatoEscolhido[1][0].nome != null
+            ? candidatoEscolhido[1][0].nome
+            : candidatoEscolhido[1];
+    let divMainComprovante = document.querySelector("#comprovante-wrapper");
+    divMainComprovante.style.display = "flex";  
+    }, 3000)
+    
 }
-
