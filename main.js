@@ -4,6 +4,7 @@ const audioBotaoConfirma = document.querySelector("#audio-botão-confirma");
 let spanName = document.querySelector("#span-nome");
 let spanPartido = document.querySelector("#span-partido");
 let imgPrincipal = document.querySelector("#img-prefeito");
+let imgVicePrefeito = document.querySelector("#img-vice-prefeito");
 let votos = [];
 let etapa = 1;
 let branco = false;
@@ -53,8 +54,8 @@ document.addEventListener("keypress", (event) => {
 });
 
 function clickedNumber(n) {
-    if( branco == true) {
-        corrige() // este bloco faz com que o branco desapareça assim que clicamos no número
+    if (branco == true) {
+        corrige(); // este bloco faz com que o branco desapareça assim que clicamos no número
     }
     audioBotao.play();
     if (etapa == 1) {
@@ -106,7 +107,11 @@ function mostrarCandidato(candidatoEscolhido) {
     let spanName = document.querySelector("#span-nome");
     let spanPartido = document.querySelector("#span-partido");
     let imgPrincipal = document.querySelector("#img-prefeito");
-    console.log(spanName, spanPartido, imgPrincipal);
+    if (etapa == 2) {
+        let imgVice = document.querySelector("#img-vice-prefeito");
+        imgVice.innerHTML = `<img id="image-img-vice" src='${candidatoEscolhido[0].fotoVice}'></img>`;
+    }
+    console.log(spanName, spanPartido, imgPrincipal, candidatoEscolhido);
     spanName.innerText = candidatoEscolhido[0].nome;
     imgPrincipal.innerHTML = `<img id="image-img-principal" src='${candidatoEscolhido[0].foto.url}'></img>`;
     spanPartido.innerText = candidatoEscolhido[0].partido;
@@ -123,6 +128,9 @@ function corrige() {
     document.querySelector("#num-digitado-1").classList.add("pisca");
     numero = "";
     branco = false;
+    if (etapa == 2) {
+        imgVicePrefeito.innerHTML = null
+    }
     if (document.querySelector(".div-removivel") != null) {
         let div = document.querySelector("#info-candidatos");
         let divFilho = document.querySelector(".div-removivel");
@@ -136,6 +144,7 @@ function corrige() {
 function proximaEtapa() {
     if (etapa === 1) {
         document.querySelector("#tipo-cargo").innerText = "PREFEITO";
+        document.querySelector("#img-vice-prefeito").style.display = "block";
 
         for (let c = 5; c >= 0; c--) {
             document
@@ -171,7 +180,6 @@ function confirma() {
     if (etapa == 2) {
         if (branco == true) {
             votos.push("voto-em-branco");
-
         } else {
             let candidatoEscolhido = prefeitos.filter(
                 (item) => item.nCandidatura == numero
@@ -179,11 +187,9 @@ function confirma() {
             if (candidatoEscolhido.length == 0) {
                 votos.push("Voto-Nulo");
                 console.log(votos);
-            
             } else {
                 votos.push(candidatoEscolhido);
                 console.log(votos);
-                
             }
         }
     }
@@ -193,9 +199,9 @@ function confirma() {
 }
 
 function choosenBranco() {
-    corrige()
-    if(branco == true) {
-        return
+    corrige();
+    if (branco == true) {
+        return;
     }
     let div = document.querySelector("#info-candidatos");
     let filho = div.children;
@@ -221,7 +227,6 @@ function fim() {
     }, 1500);
     console.log(votos);
     chamarComprovante(votos);
-    
 }
 
 function criarDivNomePartido() {
@@ -259,22 +264,21 @@ function infoVotoNulo() {
 
 function chamarComprovante(candidatoEscolhido) {
     setTimeout(() => {
-      let spanComprovanteVereador = document.querySelector(
-        "#span-comprovante-vereador"
-    );
-    let spanComprovantePrefeito = document.querySelector(
-        "#span-comprovante-prefeito"
-    );
+        let spanComprovanteVereador = document.querySelector(
+            "#span-comprovante-vereador"
+        );
+        let spanComprovantePrefeito = document.querySelector(
+            "#span-comprovante-prefeito"
+        );
         spanComprovanteVereador.innerText =
             candidatoEscolhido[0][0].nome != null
                 ? candidatoEscolhido[0][0].nome
                 : candidatoEscolhido[0];
-    spanComprovantePrefeito.innerText =
-        candidatoEscolhido[1][0].nome != null
-            ? candidatoEscolhido[1][0].nome
-            : candidatoEscolhido[1];
-    let divMainComprovante = document.querySelector("#comprovante-wrapper");
-    divMainComprovante.style.display = "flex";  
-    }, 3000)
-    
+        spanComprovantePrefeito.innerText =
+            candidatoEscolhido[1][0].nome != null
+                ? candidatoEscolhido[1][0].nome
+                : candidatoEscolhido[1];
+        let divMainComprovante = document.querySelector("#comprovante-wrapper");
+        divMainComprovante.style.display = "flex";
+    }, 3000);
 }

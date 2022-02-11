@@ -9,14 +9,14 @@
 }
 .urna {
     display: flex;
-    position: absolute;
-    width: 70%;
-    height: 60%;
+    position: relative;
+    max-width: 1200px;
+    height: 80%;
     top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(0%, -50%);
     background-color: rgb(240, 240, 239);
     padding: 45px;
+    margin: auto;
 }
 .urna-info {
     display: flex;
@@ -46,8 +46,8 @@
 .urna-teclado-num {
     background-color: black;
     color: white;
-    width: 100px;
-    height: 60px;
+    width: 90%;
+    height: 60%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -68,7 +68,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 29px;
+    font-size: 20px;
 }
 #urna-teclado-btns-corrige {
     background-color: orange;
@@ -82,7 +82,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 29px;
+    font-size: 20px;
 }
 #urna-teclado-btns-confirma {
     background-color: green;
@@ -93,7 +93,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 29px;
+    font-size: 20px;
 }
 .num-digitado {
     height: 65px;
@@ -155,11 +155,17 @@ hr {
     height: 100%;
     width: 100%;
 }
+#image-img-vice{
+    width: 100%;
+    height: 100%;
+
+}
 #img-vice-prefeito {
     border: solid 1px;
     width: 110px;
     height: 163px;
     display: none;
+    
 }
 
 .pisca {
@@ -216,7 +222,7 @@ hr {
     transform: translate(-50%, -50%);
     font-size: 5em;
 }
-#div-info-voto-nulo{
+#div-info-voto-nulo {
     position: absolute;
     top: 90%;
     font-size: 3em;
@@ -228,13 +234,13 @@ hr {
     background-color: rgba(15, 10, 10, 0.651);
     position: absolute;
     left: 0;
-    top :0;
+    top: 0;
     display: none;
     font-size: 30px;
-    animation: unfoldIn 1s cubic-bezier(0.165, 0.840, 0.440, 1.000)
+    animation: unfoldIn 1s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
-#div-comprovante{
+#div-comprovante {
     background-color: white;
     position: absolute;
     top: 50%;
@@ -247,29 +253,286 @@ hr {
     border-radius: 5px;
     text-align: center;
     justify-content: space-around;
-
-}.hr-comprovante {
+}
+.hr-comprovante {
     width: 100%;
     position: relative;
     left: 25px;
     border: 0;
     border-top: 2px dashed white;
-    
-    
 }
 .span-comprovante {
     text-align: center;
-
 }
 
 @keyframes unfoldIn {
-  0% {
-    transform:scaleY(.005) scaleX(0);
-  }
-  50% {
-    transform:scaleY(.005) scaleX(1);
-  }
-  100% {
-    transform:scaleY(1) scaleX(1);
-  }
+    0% {
+        transform: scaleY(0.005) scaleX(0);
+    }
+    50% {
+        transform: scaleY(0.005) scaleX(1);
+    }
+    100% {
+        transform: scaleY(1) scaleX(1);
+    }
 }
+
+@media only screen and (max-width: 969px) {
+    .urna {
+        padding: 20px;
+        max-width: 700px;
+        max-height: 400px;
+    }
+    #urna-teclado-btns-branco {
+        font-size: 10px;
+    }
+    #urna-teclado-btns-corrige {
+        font-size: 10px;
+    }
+    #urna-teclado-btns-confirma {
+        font-size: 10px;
+    }
+    .urna-info {
+        padding: 15px;
+    }
+    .urna-teclado {
+        padding: 15px;
+    }
+    .urna-teclado-num {
+        font-size: 20px;
+    }
+    #seu-voto-para {
+        font-size: 15px;
+    }
+    #tipo-cargo {
+        font-size: 16px;
+        margin-right: 50px;
+    }
+    #img-prefeito {
+        width: 100px;
+        height: 120px;
+    }
+    #img-vice-prefeito{
+        width: 80px;
+        height: 100px;
+    }
+    #numeros-digitados {
+        height: 45px;
+    }
+    .num-digitado {
+        height: 100%;
+    }
+    #info-candidatos {
+        font-size: 20px;
+    }
+    #legend {
+        font-size: 15px;
+    }
+    #hr1 {
+        position: absolute;
+        left: 25px;
+        width: 100%;
+    }
+}
+@media only screen and (max-width: 478px) {
+    .urna {
+        padding: 10px;
+        max-width: 700px;
+        max-height: 400px;
+    }
+    #urna-teclado-btns-branco {
+        font-size: 10px;
+        width: 100%;
+    }
+    #urna-teclado-btns-corrige {
+        font-size: 10px;
+        width: 100%;
+    }
+    #urna-teclado-btns-confirma {
+        font-size: 10px;
+        width: 100%;
+    }
+    .urna-info {
+        padding: 10px;
+    }
+    .urna-teclado {
+        padding: 10px;
+    }
+    .urna-teclado-num {
+        font-size: 20px;
+    }
+    #seu-voto-para {
+        font-size: 15px;
+    }
+    #tipo-cargo {
+        font-size: 16px;
+        margin-right: 100px;
+    }
+    #img-prefeito {
+        width: 80px;
+        height: 100px;
+    }
+    #img-vice-prefeito{
+        width: 70px;
+        height: 90px;
+    }
+    #numeros-digitados {
+        height: 45px;
+    }
+    .num-digitado {
+        height: 100%;
+    }
+    #info-candidatos {
+        font-size: 15px;
+    }
+    #legend {
+        font-size: 15px;
+    }
+    #hr1 {
+        position: absolute;
+        left: 25px;
+        width: 100%;
+    }
+}
+@media screen and (max-width: 393px) {
+    .urna {
+        padding: 1px;
+        max-width: 700px;
+        max-height: 400px;
+    }
+    #urna-teclado-btns-branco {
+        text-overflow: ellipsis;
+        font-size: 10px;
+    }
+    #urna-teclado-btns-corrige {
+        font-size: 10px;
+    }
+    #urna-teclado-btns-confirma {
+        font-size: 10px;
+    }
+    .urna-info {
+        padding: 10px;
+    }
+    .urna-teclado {
+        padding: 1px;
+    }
+    .urna-teclado-num {
+        font-size: 20px;
+    }
+    #seu-voto-para {
+        font-size: 13px;
+    }
+    #tipo-cargo {
+        font-size: 14px;
+        margin-right: 100px;
+    }
+    #img-prefeito {
+        width: 80px;
+        height: 100px;
+    }
+    #numeros-digitados {
+        height: 45px;
+    }
+    .num-digitado {
+        height: 100%;
+    }
+    #info-candidatos {
+        font-size: 15px;
+    }
+    #legend {
+        font-size: 15px;
+    }
+    #hr1 {
+        position: absolute;
+        left: 25px;
+        width: 100%;
+    }
+    #div-fim {
+        font-size: 100px;
+    }
+}
+
+@media screen and (max-width: 344px) {
+    .urna {
+        margin: 0;
+        padding: 0px;
+        width: 100%;
+        max-height: 500px;
+    }
+    #urna-teclado-btns-branco {
+        text-overflow: ellipsis;
+        font-size: 10px;
+    }
+    #urna-teclado-btns-corrige {
+        font-size: 10px;
+    }
+    #urna-teclado-btns-confirma {
+        font-size: 10px;
+    }
+    .urna-info {
+        padding: 10px;
+        width: 50%;
+        border-top: 0;
+        border-bottom: 0;
+        margin-right: 0;
+    }
+    .urna-teclado {
+        padding: 1px;
+        width: 50%;
+    }
+    .urna-teclado-num {
+        font-size: 20px;
+    }
+    #seu-voto-para {
+        font-size: 15px;
+    }
+    #tipo-cargo {
+        font-size: 16px;
+        margin: 10px;
+    }
+    #img-prefeito {
+        width: 80px;
+        height: 100px;
+
+        margin-top: 70px;
+    }
+    #img-vice-prefeito{
+        width: 60px;
+        height: 70px;
+        position: relative;
+        top: 205px;
+    }
+    .imgs {
+        width: 80px;
+        height: 100px;
+        position: absolute;
+        top: 50%;
+    }
+    #numeros-digitados {
+        height: 45px;
+        position: relative;
+        top: 50%;
+        display: flex;
+    }
+    .num-digitado {
+        height: 100%;
+        width: 15px;
+    }
+    #info-candidatos {
+        font-size: 15px;
+        position: relative;
+        top: 50%;
+    }
+    #legend {
+        font-size: 15px;
+    }
+    #hr1 {
+        position: absolute;
+        left: 25px;
+        width: 100%;
+    }
+    #div-fim {
+        font-size: 70px;
+    }
+}
+
