@@ -74,7 +74,13 @@ function clickedNumber(n) {
             );
             if (vereadorEscolhido.length == 0) {
                 //aqui vou aplicar a informação de voto nulo
+                if(nulo != true) {
                 infoVotoNulo();
+                nulo = true
+                }
+                
+                nulo == true
+                console.log(numero)
             } else {
                 mostrarCandidato(vereadorEscolhido);
             }
@@ -95,6 +101,7 @@ function clickedNumber(n) {
                 (item) => item.nCandidatura == numero
             );
             if (candidatoEscolhido.length == 0) {
+                nulo = true
                 infoVotoNulo();
             } else {
                 mostrarCandidato(candidatoEscolhido);
@@ -139,6 +146,7 @@ function corrige() {
     if (document.querySelector("#info-candidatos").children.length != 2) {
         criarDivNomePartido();
     }
+    nulo = false
 }
 
 function proximaEtapa() {
@@ -248,10 +256,12 @@ function criarDivNomePartido() {
 }
 
 function infoVotoNulo() {
+    if(nulo == true) {
+        return
+    }
     let urnaCandidatos = document.querySelector("#info-candidatos");
     console.log(urnaCandidatos.children);
     let filhos = urnaCandidatos.children;
-    console.log(filhos);
     urnaCandidatos.removeChild(filhos[0]);
     urnaCandidatos.removeChild(filhos[0]);
     let divVotoNulo = document.createElement("div");
@@ -260,7 +270,9 @@ function infoVotoNulo() {
     divVotoNulo.setAttribute("id", "div-info-voto-nulo");
     divVotoNulo.innerText = "VOTO NULO";
     urnaCandidatos.appendChild(divVotoNulo);
-}
+    }
+    
+
 
 function chamarComprovante(candidatoEscolhido) {
     setTimeout(() => {

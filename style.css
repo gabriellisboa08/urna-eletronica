@@ -167,7 +167,9 @@ hr {
     display: none;
     
 }
-
+#div-voto-branco {
+    font-size: 60px;
+}
 .pisca {
     -webkit-animation-name: blinker;
     -webkit-animation-iteration-count: infinite;
@@ -333,6 +335,10 @@ hr {
         left: 25px;
         width: 100%;
     }
+    #div-info-voto-nulo{
+        font-size: 40px;
+     
+    }
 }
 @media only screen and (max-width: 478px) {
     .urna {
@@ -393,6 +399,9 @@ hr {
         left: 25px;
         width: 100%;
     }
+    #div-info-voto-nulo{
+        font-size: 50px;
+    }
 }
 @media screen and (max-width: 393px) {
     .urna {
@@ -449,6 +458,10 @@ hr {
     }
     #div-fim {
         font-size: 100px;
+    }
+    #div-info-voto-nulo{
+        font-size: 20px;
+        bottom: 0;
     }
 }
 
@@ -524,7 +537,7 @@ hr {
         top: 50%;
     }
     #legend {
-        font-size: 15px;
+        font-size: 14px;
     }
     #hr1 {
         position: absolute;
@@ -533,6 +546,10 @@ hr {
     }
     #div-fim {
         font-size: 70px;
+    }
+    #div-info-voto-nulo{
+        font-size: 20px;
+        bottom: 0;
     }
 }
 
