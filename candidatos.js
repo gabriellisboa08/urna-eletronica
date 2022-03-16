@@ -19,9 +19,7 @@ prefeitos.push(
         "img/prefeito-1.jpg",
         "Reinoldo feliciano",
         "img/vice-1.jpg"
-    )
-);
-prefeitos.push(
+    ),
     new Candidatos(
         "68",
         "Vouti roubei",
@@ -33,16 +31,14 @@ prefeitos.push(
 );
 
 vereadores.push(
-    new Candidatos("12345", "Zé Mão boba", "corruPTos", "img/vereador-1.jpg")
-);
-
-vereadores.push(
+    new Candidatos("12345", "Zé Mão boba", "corruPTos", "img/vereador-1.jpg"),
     new Candidatos(
         "54321",
         "Rosinha do Prado",
         "pé de feijão",
         "img/vereador-2.jpg"
-    )
+    ),
+   
 );
 let candidatos = [];
 candidatos.push(prefeitos, vereadores);
