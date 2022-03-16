@@ -157,7 +157,9 @@ function mostrarCandidato(candidatoEscolhido) {
     let imgPrincipal = document.querySelector("#img-prefeito");
     if (etapa == 2) {
         let imgVice = document.querySelector("#img-vice-prefeito");
+        let nomeVice = document.querySelector("#span-nomeVice");
         imgVice.innerHTML = `<img id="image-img-vice" src='${candidatoEscolhido[0].fotoVice}'></img>`;
+        nomeVice.innerText= candidatoEscolhido[0].nomeVice
     }
     console.log(spanName, spanPartido, imgPrincipal, candidatoEscolhido);
     spanName.innerText = candidatoEscolhido[0].nome;
@@ -170,10 +172,14 @@ function corrige() {
         .forEach(
             (item) => ((item.innerText = ""), item.classList.remove("pisca"))
         );
+
     imgPrincipal.innerHTML = null;
     spanName.innerText = null;
     spanPartido.innerText = null;
-    document.querySelector("#num-digitado-1").classList.add("pisca");
+    if (document.querySelector("#span-nomeVice")) {
+        document.querySelector("#span-nomeVice").innerText = ''
+    }
+        document.querySelector("#num-digitado-1").classList.add("pisca");
     numero = "";
     branco = false;
     if (etapa == 2) {
@@ -184,7 +190,7 @@ function corrige() {
         let divFilho = document.querySelector(".div-removivel");
         div.removeChild(divFilho);
     }
-    if (document.querySelector("#info-candidatos").children.length != 2) {
+    if (document.querySelector("#info-candidatos").children.length < 2) {
         criarDivNomePartido();
     }
     nulo = false;
@@ -210,8 +216,15 @@ function proximaEtapa() {
         fim();
     }
     etapa++;
-    document.querySelector("#info-candidatos").innerHTML +=
-        '<div class="info-candidatos">Vice: <span id="span-nome"></span></div>';
+    let divPai = document.querySelector("#info-candidatos")
+    let divPaiSpan = document.createElement('div')
+    divPaiSpan.innerText = 'Vice:'
+    divPaiSpan.setAttribute('class', 'info-candidatos')
+    let spanFilho = document.createElement('span')
+    spanFilho.setAttribute('id', 'span-nomeVice')
+    divPaiSpan.appendChild(spanFilho)
+    divPai.appendChild(divPaiSpan)
+    
 
     mostrarCandidatosDisponiveis();
 }
@@ -260,8 +273,10 @@ function choosenBranco() {
     }
     let div = document.querySelector("#info-candidatos");
     let filho = div.children;
-    div.removeChild(filho[0]);
-    div.removeChild(filho[0]);
+    while(filho.length > 0) {
+        div.removeChild(filho[0]);
+    }
+
     let newFilho = document.createElement("div");
     newFilho.classList.add("pisca");
     newFilho.classList.add("div-removivel");
