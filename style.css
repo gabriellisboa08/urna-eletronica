@@ -34,9 +34,15 @@
     background-color: white;
     border: solid 1px;
     width: 50%;
+    height: 89%;
+    
 }
 #opcoes-candidatos img {
     height: 40%;
+}
+.divspansInfo{
+    display: flex;
+    flex-direction: column;
 }
 .urna {
     display: flex;

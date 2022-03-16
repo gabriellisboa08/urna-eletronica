@@ -10,6 +10,9 @@ let etapa = 1;
 let branco = false;
 let nulo = false;
 mostrarCandidatosDisponiveis();
+document
+    .querySelector("#comprovante-wrapper")
+    .addEventListener("click", () => window.location.reload(false)); //após receber o comprovante, se clicar no mesmo o app reinicia!
 
 document.addEventListener("keypress", (event) => {
     //aplicando os eventos do teclado
@@ -56,30 +59,38 @@ document.addEventListener("keypress", (event) => {
 
 function mostrarCandidatosDisponiveis() {
     let divPai = document.getElementById("opcoes-candidatos");
-
-    console.log(divPai);
+    if (divPai.children) {
+        divPai.innerHTML = "";
+    }
     function opçõesdisponíveis(op) {
         op.map((m, i) => {
             let div = document.createElement("div");
+            let divSpans = document.createElement("div");
+            divSpans.setAttribute("class", "divspansInfo");
             let Img = document.createElement("img");
             Img.src = m.foto.url;
             let spanName = document.createElement("span");
+            spanName.innerHTML = `Nome: ${m.nome}`;
             let spanN = document.createElement("span");
+            spanN.innerHTML = `Nº: ${m.nCandidatura}`;
             let spaninfoPartido = document.createElement("span");
+
+            spaninfoPartido.innerText = `Partido: ${m.partido}`;
             div.setAttribute("class", "opcoescandidatos");
             div.setAttribute("id", `candidato${i + 1}`);
-            // div.innerText = "oi";
-            divPai.appendChild(Img);
-            divPai.appendChild(spanName);
-            divPai.appendChild(spanN);
-            divPai.appendChild(spanPartido);
+            div.appendChild(Img);
+            div.appendChild(divSpans);
+            divSpans.appendChild(spanName);
+            divSpans.appendChild(spanN);
+            divSpans.appendChild(spaninfoPartido);
             divPai.appendChild(div);
-            console.log(divPai);
-            console.log(m);
         });
     }
-    if (etapa == 1) {
+    if (etapa === 1) {
         opçõesdisponíveis(vereadores);
+    }
+    if (etapa === 2) {
+        opçõesdisponíveis(prefeitos);
     }
 }
 
@@ -191,12 +202,15 @@ function proximaEtapa() {
                     document.querySelector("#numeros-digitados").lastChild
                 );
         }
+
         corrige();
     }
     if (etapa === 2) {
+        document.getElementById("container-opções").style.display = "none";
         fim();
     }
     etapa++;
+    mostrarCandidatosDisponiveis();
 }
 function confirma() {
     if (etapa == 1) {
