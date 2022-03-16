@@ -210,6 +210,9 @@ function proximaEtapa() {
         fim();
     }
     etapa++;
+    document.querySelector("#info-candidatos").innerHTML +=
+        '<div class="info-candidatos">Vice: <span id="span-nome"></span></div>';
+
     mostrarCandidatosDisponiveis();
 }
 function confirma() {
