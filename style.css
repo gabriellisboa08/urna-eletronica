@@ -7,13 +7,44 @@
     height: 100vh;
     background-color: black;
 }
+
+#container-opções {
+    padding: 2px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%);
+    background-color: red;
+    height: 165px;
+    width: auto;
+    min-width: 320px;
+}
+#opcoes-title {
+    width: 100%;
+    flex-shrink: 2;
+    text-align: center;
+}
+#opcoes-candidatos {
+    display: flex;
+    height: 100%;
+}
+.opcoescandidatos {
+    background-color: white;
+    border: solid 1px;
+    width: 50%;
+}
+#opcoes-candidatos img {
+    height: 40%;
+}
 .urna {
     display: flex;
     position: relative;
     max-width: 1200px;
     height: 80%;
-    top: 50%;
-    transform: translate(0%, -50%);
+    top: 90%;
+    transform: translate(0%, -90%);
     background-color: rgb(240, 240, 239);
     padding: 45px;
     margin: auto;
@@ -155,17 +186,15 @@ hr {
     height: 100%;
     width: 100%;
 }
-#image-img-vice{
+#image-img-vice {
     width: 100%;
     height: 100%;
-
 }
 #img-vice-prefeito {
     border: solid 1px;
     width: 110px;
     height: 163px;
     display: none;
-    
 }
 #div-voto-branco {
     font-size: 60px;
@@ -314,7 +343,7 @@ hr {
         width: 100px;
         height: 120px;
     }
-    #img-vice-prefeito{
+    #img-vice-prefeito {
         width: 80px;
         height: 100px;
     }
@@ -335,9 +364,8 @@ hr {
         left: 25px;
         width: 100%;
     }
-    #div-info-voto-nulo{
+    #div-info-voto-nulo {
         font-size: 40px;
-     
     }
 }
 @media only screen and (max-width: 478px) {
@@ -378,7 +406,7 @@ hr {
         width: 80px;
         height: 100px;
     }
-    #img-vice-prefeito{
+    #img-vice-prefeito {
         width: 70px;
         height: 90px;
     }
@@ -399,7 +427,7 @@ hr {
         left: 25px;
         width: 100%;
     }
-    #div-info-voto-nulo{
+    #div-info-voto-nulo {
         font-size: 50px;
     }
 }
@@ -459,7 +487,7 @@ hr {
     #div-fim {
         font-size: 100px;
     }
-    #div-info-voto-nulo{
+    #div-info-voto-nulo {
         font-size: 20px;
         bottom: 0;
     }
@@ -509,7 +537,7 @@ hr {
 
         margin-top: 70px;
     }
-    #img-vice-prefeito{
+    #img-vice-prefeito {
         width: 60px;
         height: 70px;
         position: relative;
@@ -547,9 +575,8 @@ hr {
     #div-fim {
         font-size: 70px;
     }
-    #div-info-voto-nulo{
+    #div-info-voto-nulo {
         font-size: 20px;
         bottom: 0;
     }
 }
-

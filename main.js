@@ -9,6 +9,7 @@ let votos = [];
 let etapa = 1;
 let branco = false;
 let nulo = false;
+mostrarCandidatosDisponiveis();
 
 document.addEventListener("keypress", (event) => {
     //aplicando os eventos do teclado
@@ -53,6 +54,35 @@ document.addEventListener("keypress", (event) => {
     }
 });
 
+function mostrarCandidatosDisponiveis() {
+    let divPai = document.getElementById("opcoes-candidatos");
+
+    console.log(divPai);
+    function opçõesdisponíveis(op) {
+        op.map((m, i) => {
+            let div = document.createElement("div");
+            let Img = document.createElement("img");
+            Img.src = m.foto.url;
+            let spanName = document.createElement("span");
+            let spanN = document.createElement("span");
+            let spaninfoPartido = document.createElement("span");
+            div.setAttribute("class", "opcoescandidatos");
+            div.setAttribute("id", `candidato${i + 1}`);
+            // div.innerText = "oi";
+            divPai.appendChild(Img);
+            divPai.appendChild(spanName);
+            divPai.appendChild(spanN);
+            divPai.appendChild(spanPartido);
+            divPai.appendChild(div);
+            console.log(divPai);
+            console.log(m);
+        });
+    }
+    if (etapa == 1) {
+        opçõesdisponíveis(vereadores);
+    }
+}
+
 function clickedNumber(n) {
     if (branco == true) {
         corrige(); // este bloco faz com que o branco desapareça assim que clicamos no número
@@ -74,13 +104,13 @@ function clickedNumber(n) {
             );
             if (vereadorEscolhido.length == 0) {
                 //aqui vou aplicar a informação de voto nulo
-                if(nulo != true) {
-                infoVotoNulo();
-                nulo = true
+                if (nulo != true) {
+                    infoVotoNulo();
+                    nulo = true;
                 }
-                
-                nulo == true
-                console.log(numero)
+
+                nulo == true;
+                console.log(numero);
             } else {
                 mostrarCandidato(vereadorEscolhido);
             }
@@ -101,7 +131,7 @@ function clickedNumber(n) {
                 (item) => item.nCandidatura == numero
             );
             if (candidatoEscolhido.length == 0) {
-                nulo = true
+                nulo = true;
                 infoVotoNulo();
             } else {
                 mostrarCandidato(candidatoEscolhido);
@@ -136,7 +166,7 @@ function corrige() {
     numero = "";
     branco = false;
     if (etapa == 2) {
-        imgVicePrefeito.innerHTML = null
+        imgVicePrefeito.innerHTML = null;
     }
     if (document.querySelector(".div-removivel") != null) {
         let div = document.querySelector("#info-candidatos");
@@ -146,7 +176,7 @@ function corrige() {
     if (document.querySelector("#info-candidatos").children.length != 2) {
         criarDivNomePartido();
     }
-    nulo = false
+    nulo = false;
 }
 
 function proximaEtapa() {
@@ -256,8 +286,8 @@ function criarDivNomePartido() {
 }
 
 function infoVotoNulo() {
-    if(nulo == true) {
-        return
+    if (nulo == true) {
+        return;
     }
     let urnaCandidatos = document.querySelector("#info-candidatos");
     console.log(urnaCandidatos.children);
@@ -270,9 +300,7 @@ function infoVotoNulo() {
     divVotoNulo.setAttribute("id", "div-info-voto-nulo");
     divVotoNulo.innerText = "VOTO NULO";
     urnaCandidatos.appendChild(divVotoNulo);
-    }
-    
-
+}
 
 function chamarComprovante(candidatoEscolhido) {
     setTimeout(() => {
