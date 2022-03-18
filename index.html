@@ -1,89 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
+
     <head>
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Urna Eletrônica</title>
         <link rel="stylesheet" href="style.css" />
+        <link rel="shortcut icon" href='https://www.justicaeleitoral.jus.br/spe/assets/img/icone-passo-a-passo-6.png' type="image/x-icon">
     </head>
+
     <body>
         <div class="container-wrapper">
-            <div id='container-opções'>
+            <div class='container-opções'>
                 <div id="opcoes-title">Candidatos Disponíveis</div>
                 <div id="opcoes-candidatos"></div>
             </div>
-            <div class="urna">
-                <div class="urna-info">
-                    <div id="urna-info-candidatos">
-                        <div id="seu-voto-para">SEU VOTO PARA</div>
-                        <div id="tipo-cargo">VEREADOR</div>
-                        <div id="numeros-digitados">
-                        <div class="num-digitado pisca" id="num-digitado-1" ></div>
-                        <div class="num-digitado" id="num-digitado-2"></div>
-                        <div class="num-digitado" id="num-digitado-3"></div>
-                        <div class="num-digitado" id="num-digitado-4"></div>
-                        <div class="num-digitado" id="num-digitado-5"></div>
-                    </div>
-                    <div id="info-candidatos">
-                        <div class="info-candidatos">Nome: <span id="span-nome"></span></div>
-                        <div class="info-candidatos">Partido: <span id="span-partido"></span></div>
-                    </div>
-                    <div id="imgs">
-                        <div class="imgs" id="img-prefeito"></div>
-                        <div class="imgs" id="img-vice-prefeito">
-                            
+            <div class="container-urna">
+                <div class="urna">
+                    <div class="urna-info">
+                        <div id="urna-info-candidatos">
+                            <div id="seu-voto-para">SEU VOTO PARA</div>
+                            <div id="tipo-cargo">VEREADOR</div>
+                            <div id="numeros-digitados">
+                                <div class="num-digitado pisca" id="num-digitado-1"></div>
+                                <div class="num-digitado" id="num-digitado-2"></div>
+                                <div class="num-digitado" id="num-digitado-3"></div>
+                                <div class="num-digitado" id="num-digitado-4"></div>
+                                <div class="num-digitado" id="num-digitado-5"></div>
+                            </div>
+                            <div id="info-candidatos">
+                                <div class="info-candidatos">Nome: <span id="span-nome"></span></div>
+                                <div class="info-candidatos">Partido: <span id="span-partido"></span></div>
+                            </div>
+                            <div id="imgs">
+                                <div class="imgs" id="img-prefeito"></div>
+                                <div class="imgs" id="img-vice-prefeito">
+
+                                </div>
+                            </div>
                         </div>
-                    </div> 
-                    </div>
-                   
 
-                    <div id="urna-info-legend">
-                    <div id="legend">
-                        <hr id="hr1">
-                        Aperte a tela: <br />
-                        CONFIRMA para CONFIRMAR este voto <br/>
-                        CORRIGE para REINICIAR este voto
+                        <div id="urna-info-legend">
+                            <div id="legend">
+                                <hr id="hr1">
+                                Aperte a tela: <br />
+                                CONFIRMA para CONFIRMAR este voto <br />
+                                CORRIGE para REINICIAR este voto
+                            </div>
+                        </div>
+
                     </div>
-                    </div>
-                  
-                </div>
-                <div class="urna-teclado">
-                    <button class="urna-teclado-num" id="num1" num="1" onclick="clickedNumber(1)">
-                        1
-                    </button>
-                    <button class="urna-teclado-num" id="num2" num="2" onclick="clickedNumber(2)">
-                        2
-                    </button>
-                    <button class="urna-teclado-num" id="num3" num="4" onclick="clickedNumber(3)">
-                        3
-                    </button>
-                    <button class="urna-teclado-num" id="num4" num="4" onclick="clickedNumber(4)">
-                        4
-                    </button>
-                    <button class="urna-teclado-num" id="num5" num="5"  onclick="clickedNumber(5)">
-                        5
-                    </button>
-                    <button class="urna-teclado-num" id="num6" num="6" onclick="clickedNumber(6)">
-                        6
-                    </button>
-                    <button class="urna-teclado-num" id="num7" num="7" onclick="clickedNumber(7)">
-                        7
-                    </button>
-                    <button class="urna-teclado-num" id="num8" num="8" onclick="clickedNumber(8)">
-                        8
-                    </button>
-                        <button class="urna-teclado-num" id="num9" num="9" onclick="clickedNumber(9)">
-                        9
+                    <div class="urna-teclado">
+                        <button class="urna-teclado-num" id="num1" num="1" onclick="clickedNumber(1)">
+                            1
                         </button>
-                    </button>
-                    <button class="urna-teclado-num" id="num0" num="0" onclick="clickedNumber(0)">
-                        0
-                    </button>
-
-                    <button id="urna-teclado-btns-branco" onclick="choosenBranco()">Branco</button>
-                    <button id="urna-teclado-btns-corrige" onclick="corrige()">Corrige</button>
-                    <button id="urna-teclado-btns-confirma" onclick="confirma()">Confirma</button>
+                        <button class="urna-teclado-num" id="num2" num="2" onclick="clickedNumber(2)">
+                            2
+                        </button>
+                        <button class="urna-teclado-num" id="num3" num="4" onclick="clickedNumber(3)">
+                            3
+                        </button>
+                        <button class="urna-teclado-num" id="num4" num="4" onclick="clickedNumber(4)">
+                            4
+                        </button>
+                        <button class="urna-teclado-num" id="num5" num="5" onclick="clickedNumber(5)">
+                            5
+                        </button>
+                        <button class="urna-teclado-num" id="num6" num="6" onclick="clickedNumber(6)">
+                            6
+                        </button>
+                        <button class="urna-teclado-num" id="num7" num="7" onclick="clickedNumber(7)">
+                            7
+                        </button>
+                        <button class="urna-teclado-num" id="num8" num="8" onclick="clickedNumber(8)">
+                            8
+                        </button>
+                        <button class="urna-teclado-num" id="num9" num="9" onclick="clickedNumber(9)">
+                            9
+                        </button>
+                        </button>
+                        <button class="urna-teclado-num" id="num0" num="0" onclick="clickedNumber(0)">
+                            0
+                        </button>
+                        <button id="urna-teclado-btns-branco" onclick="choosenBranco()">Branco</button>
+                        <button id="urna-teclado-btns-corrige" onclick="corrige()">Corrige</button>
+                        <button id="urna-teclado-btns-confirma" onclick="confirma()">Confirma</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -96,10 +99,11 @@
                 <hr class="hr-comprovante">
                 PREFEITO
                 <span id="span-comprovante-prefeito" class="span-comprovante">OLa</span>
-                
+
             </div>
         </div>
         <script src="candidatos.js"></script>
         <script src="main.js"></script>
     </body>
+
 </html>
