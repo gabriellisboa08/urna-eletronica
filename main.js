@@ -138,14 +138,13 @@ function clickedNumber(n) {
             }
         }
         if (numero.length === 2) {
-            
             let candidatoEscolhido = prefeitos.filter(
                 (item) => item.nCandidatura == numero
             );
-            console.log(candidatoEscolhido)
+            console.log(candidatoEscolhido);
             if (candidatoEscolhido.length == 0) {
-                nulo = true;
                 infoVotoNulo();
+                nulo = true;
             } else {
                 mostrarCandidato(candidatoEscolhido);
             }
@@ -175,12 +174,11 @@ function corrige() {
             (item) => ((item.innerText = ''), item.classList.remove('pisca'))
         );
 
+    document
+        .querySelectorAll('.info-candidatos > span')
+        .forEach((element) => (element.innerText = null));
     imgPrincipal.innerHTML = null;
-    spanName.innerText = null;
-    spanPartido.innerText = null;
-    if (document.querySelector('#span-nomeVice')) {
-        document.querySelector('#span-nomeVice').innerText = '';
-    }
+
     document.querySelector('#num-digitado-1').classList.add('pisca');
     numero = '';
     branco = false;
@@ -316,17 +314,28 @@ function criarDivNomePartido() {
     filho2.appendChild(filho1_2);
     div.appendChild(filho1);
     div.appendChild(filho2);
+    if (etapa == 2) {
+        let filho3 = document.createElement('div');
+        filho3.classList.add('info-candidatos');
+        filho3.innerText = 'Vice: ';
+        let spanFilho3 = document.createElement('span');
+        spanFilho3.setAttribute('id', 'span-nomeVice');
+        filho3.appendChild(spanFilho3);
+        div.appendChild(filho3);
+    }
 }
 
 function infoVotoNulo() {
     if (nulo == true) {
-        return;
+        return
     }
     let urnaCandidatos = document.querySelector('#info-candidatos');
-    console.log(urnaCandidatos.children);
-    let filhos = urnaCandidatos.children;
-    urnaCandidatos.removeChild(filhos[0]);
-    urnaCandidatos.removeChild(filhos[0]);
+    let filhos = document.querySelectorAll('.info-candidatos');
+    console.log(filhos);
+
+    filhos.forEach((element) => {
+        element.remove();
+    });
     let divVotoNulo = document.createElement('div');
     divVotoNulo.classList.add('pisca');
     divVotoNulo.classList.add('div-removivel');

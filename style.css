@@ -15,7 +15,7 @@
     display: flex;
     flex-direction: column;
     background-color: red;
-    height: 165px;
+    height: 215px;
     width: auto;
 }
 
@@ -178,12 +178,12 @@
 }
 #urna-info-legend {
     margin-top: 10px;
-    
+
     position: relative;
     bottom: 0;
     /* display: none; */
 }
-#legend{
+#legend {
     margin-top: 10px;
 }
 hr {
@@ -292,7 +292,8 @@ hr {
     left: 50%;
     transform: translate(-50%, -50%);
     height: 350px;
-    width: 350px;
+    width: 100%;
+    max-width: 350px;
     display: flex;
     flex-direction: column;
     border-radius: 5px;
@@ -375,9 +376,8 @@ hr {
         font-size: 15px;
     }
     #hr1 {
-    position: absolute;
-    left: 10px;
-    width: calc(109% - 1px)
+        margin-left: -15px;
+        margin-right: -15px;
     }
     #div-info-voto-nulo {
         font-size: 40px;
@@ -441,12 +441,12 @@ hr {
         font-size: 15px;
     }
     #hr1 {
-        position: absolute;
-        left: 25px;
-        width: 100%;
+        margin-left: -10px;
+        margin-right: -10px;
     }
     #div-info-voto-nulo {
-        font-size: 50px;
+        font-size: 33px;
+        top: 63%;
     }
 }
 @media screen and (max-width: 393px) {
@@ -497,17 +497,13 @@ hr {
     #legend {
         font-size: 15px;
     }
-    #hr1 {
-        position: absolute;
-        left: 25px;
-        width: 100%;
-    }
+
     #div-fim {
         font-size: 100px;
     }
     #div-info-voto-nulo {
-        font-size: 20px;
-        bottom: 0;
+        font-size: 15px;
+        bottom: 72px;
     }
     #div-voto-branco {
         font-size: 12px;
@@ -515,16 +511,17 @@ hr {
 }
 
 @media screen and (max-width: 344px) {
-    #container-opções {
-        height: 110px;
-        font-size: small;
+    .container-opções {
+        height: 170px;
+    }
+    .opcoescandidatos img {
+        height: 5px;
     }
     .urna {
-        top: 340px;
         margin: 0;
         padding: 0px;
         width: 100%;
-        max-height: 500px;
+        max-height: 100%;
     }
     #urna-teclado-btns-branco {
         text-overflow: ellipsis;
@@ -558,16 +555,17 @@ hr {
         margin: 10px;
     }
     #img-prefeito {
-        width: 80px;
-        height: 100px;
-
-        margin-top: 70px;
+        position: relative;
+        right: 72px;
+        width: 70px;
+        height: 80px;
+        margin-top: 50px;
     }
     #img-vice-prefeito {
         width: 60px;
         height: 70px;
         position: relative;
-        top: 205px;
+        bottom: 50px;
     }
     .imgs {
         width: 80px;
@@ -575,10 +573,11 @@ hr {
         position: absolute;
         top: 50%;
     }
+
     #numeros-digitados {
-        height: 45px;
+        height: 22px;
         position: relative;
-        top: 50%;
+        top: 35%;
         display: flex;
     }
     .num-digitado {
@@ -588,21 +587,17 @@ hr {
     #info-candidatos {
         font-size: 15px;
         position: relative;
-        top: 50%;
+        top: 35%;
     }
     #legend {
         font-size: 14px;
     }
-    #hr1 {
-        position: absolute;
-        left: 25px;
-        width: 100%;
-    }
+
     #div-fim {
         font-size: 70px;
     }
     #div-info-voto-nulo {
-        font-size: 20px;
-        bottom: 0;
+        font-size: 15px;
+        top: 90%;
     }
 }
