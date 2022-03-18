@@ -394,7 +394,8 @@ hr {
     }
     #urna-teclado-btns-branco {
         font-size: 10px;
-        width: 100%;
+        width: 113%;
+        margin-left: 4px;
     }
     #urna-teclado-btns-corrige {
         font-size: 10px;
