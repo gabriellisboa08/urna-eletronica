@@ -380,7 +380,7 @@ hr {
         margin-right: -15px;
     }
     #div-info-voto-nulo {
-        font-size: 40px;
+        font-size: 25px;
     }
     #div-voto-branco {
         font-size: 15px;
@@ -446,7 +446,7 @@ hr {
         margin-right: -10px;
     }
     #div-info-voto-nulo {
-        font-size: 33px;
+        font-size: 20px;
         top: 63%;
     }
 }
@@ -493,7 +493,7 @@ hr {
         height: 100%;
     }
     #info-candidatos {
-        font-size: 15px;
+        font-size: 13px;
     }
     #legend {
         font-size: 15px;
@@ -586,7 +586,6 @@ hr {
         width: 15px;
     }
     #info-candidatos {
-        font-size: 15px;
         position: relative;
         top: 35%;
     }

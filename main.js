@@ -9,7 +9,7 @@ let votos = [];
 let etapa = 1;
 let branco = false;
 let nulo = false;
-mostrarCandidatosDisponiveis();
+mostrarCandidatosDisponiveis() // CHAMANDO A FUNÇÃO PARA MOSTRAR OS CANDIDATOS DISPONÍVEIS;
 document
     .querySelector('#comprovante-wrapper')
     .addEventListener('click', () => window.location.reload(false)); //após receber o comprovante, se clicar no mesmo o app reinicia!
@@ -86,12 +86,8 @@ function mostrarCandidatosDisponiveis() {
             divPai.appendChild(div);
         });
     }
-    if (etapa === 1) {
-        opçõesdisponíveis(vereadores);
-    }
-    if (etapa === 2) {
-        opçõesdisponíveis(prefeitos);
-    }
+    etapa == 1 ? opçõesdisponíveis(vereadores) : opçõesdisponíveis(prefeitos)
+    
 }
 
 function clickedNumber(n) {
