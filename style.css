@@ -396,12 +396,12 @@
         width: 70px;
         height: 80px;
     }
-
+    
     #img-vice-prefeito {
         width: 60px;
         height: 70px;
     }
-
+    
     #info-candidatos {
         padding-top: 20px;
         font-size: 12px;
@@ -412,6 +412,9 @@
     }
 }
 @media only screen and (max-width: 500px) {
+        #div-fim {
+            font-size: 85px;
+        }
     .urna {
         padding: 10px;
     }
@@ -442,8 +445,5 @@
 @media only screen and (max-width: 320px) {
     .urna {
         padding: 1px;
-    }
-    #div-fim {
-        font-size: 100px;
     }
 }
