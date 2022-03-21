@@ -352,7 +352,7 @@ hr {
     }
     #tipo-cargo {
         font-size: 16px;
-        margin-right: 50px;
+        margin-right: 83px;
     }
     #img-prefeito {
         width: 100px;
@@ -372,15 +372,21 @@ hr {
         font-size: 20px;
     }
     #legend {
-        margin-bottom: -5px;
+        margin-bottom: -4px;
         font-size: 15px;
+        margin-top: -9px;
     }
     #hr1 {
         margin-left: -15px;
         margin-right: -15px;
+        border: 1px;
+        color: black;
+        background-color: black;
+        opacity: 1;
+        margin: 0px;
     }
     #div-info-voto-nulo {
-        font-size: 25px;
+        font-size: 40px;
     }
     #div-voto-branco {
         font-size: 15px;
@@ -446,7 +452,7 @@ hr {
         margin-right: -10px;
     }
     #div-info-voto-nulo {
-        font-size: 20px;
+        font-size: 33px;
         top: 63%;
     }
 }
@@ -493,7 +499,7 @@ hr {
         height: 100%;
     }
     #info-candidatos {
-        font-size: 13px;
+        font-size: 15px;
     }
     #legend {
         font-size: 15px;
@@ -586,6 +592,7 @@ hr {
         width: 15px;
     }
     #info-candidatos {
+        font-size: 15px;
         position: relative;
         top: 35%;
     }
