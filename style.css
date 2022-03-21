@@ -362,7 +362,7 @@
         height: 100px;
     }
     #numeros-digitados {
-        height: 45px;
+        height: 35px;
     }
     .num-digitado {
         height: 100%;
@@ -434,9 +434,16 @@
     #tipo-cargo {
         font-size: 12px;
     }
+    .num-digitado {
+        width: 10px;
+        height: 30px;
+    }
 }
 @media only screen and (max-width: 320px) {
     .urna {
         padding: 1px;
+    }
+    #div-fim {
+        font-size: 100px;
     }
 }
