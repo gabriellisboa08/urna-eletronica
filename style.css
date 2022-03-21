@@ -64,13 +64,12 @@
     height: 100%;
     background-color: lightgray;
     margin-right: 3%;
-    padding-left: 25px;
-    padding-right: 25px;
-    padding-top: 25px;
+    padding: 4px;
     font-size: 25px;
     border: solid 2px;
     position: relative;
 }
+
 .urna-teclado {
     position: relative;
     display: grid;
@@ -141,12 +140,13 @@
 }
 .num-digitado {
     height: 65px;
-    width: 7%;
+    width: 8%;
+    min-width: 28px;
     border: solid 1px black;
 }
 #tipo-cargo {
-    margin: 5% auto;
     text-align: center;
+    margin: 10px;
 }
 #numeros-digitados {
     display: flex;
@@ -163,44 +163,39 @@
     display: flex;
     flex-direction: column;
     margin: 5% 0px;
+    padding-top: 15px;
 }
 .info-candidatos {
     margin-bottom: 10px;
 }
 #imgs {
-    position: absolute;
-    right: 0;
-    top: 0;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
 }
 #urna-info-candidatos {
+    display: flex;
     border: 1px black;
     height: 80%;
-    position: relative;
+    flex-direction: row;
+}
+.info-info-candidatos {
+    width: 80%;
+}
+.div-imgs {
+    width: 20%;
 }
 #urna-info-legend {
-    margin-top: 10px;
-
-    position: relative;
-    bottom: 0;
+    border-top: 1px solid black;
     /* display: none; */
+    padding: 7px 0px;
 }
 #legend {
-    margin-top: -29px;
-}
-hr {
-    margin: 0px -25px;
-    color: black !important;
-    background-color: black !important;
-    margin-left: -15px;
-    margin-right: -15px;
-
-    opacity: 1 !important;
-    margin: 0px;
-
-    border: solid 1px;
+    font-size: 20px;
+    height: 100%;
+    width: 100%;
+    border-top: 1px;
+    border-color: black;
 }
 #img-prefeito {
     border: solid 1px;
@@ -279,10 +274,6 @@ hr {
     font-size: 5em;
 }
 #div-info-voto-nulo {
-    position: absolute;
-    top: 90%;
-    font-size: 3em;
-    transform: translate(-0%, -90%);
 }
 #comprovante-wrapper {
     width: 100%;
@@ -349,9 +340,7 @@ hr {
     #urna-teclado-btns-confirma {
         font-size: 10px;
     }
-    .urna-info {
-        padding: 15px;
-    }
+
     .urna-teclado {
         padding: 15px;
     }
@@ -363,7 +352,6 @@ hr {
     }
     #tipo-cargo {
         font-size: 16px;
-        margin-right: 83px;
     }
     #img-prefeito {
         width: 100px;
@@ -381,6 +369,7 @@ hr {
     }
     #info-candidatos {
         font-size: 15px;
+        margin: 4% 0px;
     }
     #legend {
         margin-bottom: -4px;
@@ -403,7 +392,48 @@ hr {
         font-size: 15px;
     }
 }
-@media only screen and (max-width: 478px) {
+@media only screen and (max-width: 586px) {
+    #imgs {
+        /* width: 80px; */
+    }
+    #info-candidatos {
+        padding-top: 30px;
+        font-size: 12px;
+    }
+    #legend {
+        font-size: 12px;
+        padding: 4px;
+    }
+}
+@media only screen and (max-width: 586px) {
+    #img-prefeito {
+        width: 70px;
+        height: 80px;
+    }
+
+    #img-vice-prefeito {
+        width: 60px;
+        height: 70px;
+    }
+
+    #info-candidatos {
+        padding-top: 30px;
+        font-size: 12px;
+    }
+    #legend {
+        font-size: 12px;
+        padding: 4px;
+    }
+}
+@media only screen and (max-width: 500px) {
+    .num-digitado {
+        width: 28px;
+    }
+}
+@media only screen and (max-width: 399px) {
+    /*Aqui prescosp alterar as letras  e  os botões*/
+}
+/* @media only screen and (max-width: 478px) {
     .urna {
         padding: 10px;
         max-width: 700px;
@@ -653,4 +683,4 @@ hr {
             width: 90%;
         }
     }
-}
+} */
