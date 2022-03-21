@@ -453,7 +453,7 @@ hr {
         height: 100%;
     }
     #info-candidatos {
-        font-size: 13px;
+        font-size: 11px;
     }
     #legend {
         font-size: 15px;
@@ -509,7 +509,7 @@ hr {
             height: 100%;
         }
         #info-candidatos {
-            font-size: 15px;
+            font-size: 12px;
         }
         #legend {
             font-size: 15px;
@@ -565,11 +565,11 @@ hr {
             font-size: 20px;
         }
         #seu-voto-para {
-            font-size: 15px;
+            font-size: 13px;
         }
         #tipo-cargo {
-            font-size: 16px;
-            margin: 10px;
+            font-size: 13px;
+            margin: 2px;
         }
         #img-prefeito {
             position: relative;
