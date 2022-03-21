@@ -9,7 +9,6 @@ let votos = [];
 let etapa = 1;
 let branco = false;
 let nulo = false;
-proximaEtapa() // excuir depois!
 mostrarCandidatosDisponiveis() // CHAMANDO A FUNÇÃO PARA MOSTRAR OS CANDIDATOS DISPONÍVEIS;
 document
     .querySelector('#comprovante-wrapper')
