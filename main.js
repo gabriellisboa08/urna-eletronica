@@ -205,14 +205,15 @@ function proximaEtapa() {
 					document.querySelector('#numeros-digitados').lastChild
 				);
 		}
-
+		etapa++;
 		corrige();
-	}
-	if (etapa === 2) {
+	} else if (etapa === 2) {
 		document.querySelector('.container-opções').style.opacity = 0;
 		fim();
+		mostrarCandidatosDisponiveis();
+		return;
 	}
-	etapa++;
+
 	let divPai = document.querySelector('#info-candidatos');
 	let divPaiSpan = document.createElement('div');
 	divPaiSpan.innerText = 'Vice: ';
@@ -221,7 +222,6 @@ function proximaEtapa() {
 	spanFilho.setAttribute('id', 'span-nomeVice');
 	divPaiSpan.appendChild(spanFilho);
 	divPai.appendChild(divPaiSpan);
-
 	mostrarCandidatosDisponiveis();
 }
 function confirma() {
