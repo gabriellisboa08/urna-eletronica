@@ -111,13 +111,10 @@ function clickedNumber(n) {
 			);
 			if (vereadorEscolhido.length == 0) {
 				//aqui vou aplicar a informação de voto nulo
-				if (nulo != true) {
+				if (!nulo) {
 					infoVotoNulo();
 					nulo = true;
 				}
-
-				nulo == true;
-				console.log(numero);
 			} else {
 				mostrarCandidato(vereadorEscolhido);
 			}
@@ -137,7 +134,6 @@ function clickedNumber(n) {
 			let candidatoEscolhido = prefeitos.filter(
 				(item) => item.nCandidatura == numero
 			);
-			console.log(candidatoEscolhido);
 			if (candidatoEscolhido.length == 0) {
 				infoVotoNulo();
 				nulo = true;
@@ -158,7 +154,6 @@ function mostrarCandidato(candidatoEscolhido) {
 		imgVice.innerHTML = `<img id="image-img-vice" src='${candidatoEscolhido[0].fotoVice}'></img>`;
 		nomeVice.innerText = candidatoEscolhido[0].nomeVice;
 	}
-	console.log(spanName, spanPartido, imgPrincipal, candidatoEscolhido);
 	spanName.innerText = candidatoEscolhido[0].nome;
 	imgPrincipal.innerHTML = `<img id="image-img-principal" src='${candidatoEscolhido[0].foto.url}'></img>`;
 	spanPartido.innerText = candidatoEscolhido[0].partido;
@@ -197,36 +192,37 @@ function proximaEtapa() {
 	if (etapa === 1) {
 		document.querySelector('#tipo-cargo').innerText = 'PREFEITO';
 		document.querySelector('#img-vice-prefeito').style.display = 'block';
-
-		for (let c = 5; c >= 0; c--) {
-			document
-				.querySelector('#numeros-digitados')
-				.removeChild(
-					document.querySelector('#numeros-digitados').lastChild
-				);
-		}
+		let divPai = document.querySelector('#info-candidatos');
+		let divPaiSpan = document.createElement('div');
+		divPaiSpan.innerText = 'Vice: ';
+		divPaiSpan.setAttribute('class', 'info-candidatos');
+		let spanFilho = document.createElement('span');
+		spanFilho.setAttribute('id', 'span-nomeVice');
+		divPaiSpan.appendChild(spanFilho);
+		divPai.appendChild(divPaiSpan);
+		mostrarCandidatosDisponiveis();
 		etapa++;
 		corrige();
-	} else if (etapa === 2) {
+
+		for (let c = 5; c >= 0; c--) {
+			//Verificar porque apenas o número certo do loop dá certo!
+			let parentElementsForDelete =
+				document.querySelector('#numeros-digitados');
+			parentElementsForDelete.removeChild(
+				parentElementsForDelete.lastChild
+			);
+		}
+	} else {
 		document.querySelector('.container-opções').style.opacity = 0;
 		fim();
 		mostrarCandidatosDisponiveis();
 		return;
 	}
-
-	let divPai = document.querySelector('#info-candidatos');
-	let divPaiSpan = document.createElement('div');
-	divPaiSpan.innerText = 'Vice: ';
-	divPaiSpan.setAttribute('class', 'info-candidatos');
-	let spanFilho = document.createElement('span');
-	spanFilho.setAttribute('id', 'span-nomeVice');
-	divPaiSpan.appendChild(spanFilho);
-	divPai.appendChild(divPaiSpan);
-	mostrarCandidatosDisponiveis();
 }
 function confirma() {
 	if (etapa == 1) {
-		if (branco == true) {
+		if (branco) {
+			q;
 			votos.push('voto-em-branco');
 		} else {
 			let vereadorEscolhido = vereadores.filter(
@@ -239,10 +235,8 @@ function confirma() {
 				votos.push(vereadorEscolhido);
 			}
 		}
-		// document.querySelector("#img-vice-prefeito").style.display = "block";
-	}
-	if (etapa == 2) {
-		if (branco == true) {
+	} else if (etapa == 2) {
+		if (branco) {
 			votos.push('voto-em-branco');
 		} else {
 			let candidatoEscolhido = prefeitos.filter(
@@ -324,7 +318,7 @@ function criarDivNomePartido() {
 }
 
 function infoVotoNulo() {
-	if (nulo == true) {
+	if (nulo) {
 		return;
 	}
 	let urnaCandidatos = document.querySelector('#info-candidatos');
