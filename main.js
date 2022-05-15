@@ -101,7 +101,7 @@ function clickedNumber(n) {
             selectedElement.innerHTML = n;
             numero += n;
             selectedElement.classList.remove('pisca');
-            if (selectedElement.nextElementSibling != null) {
+            if (selectedElement.nextElementSibling) {
                 selectedElement.nextElementSibling.classList.add('pisca');
             }
         }
@@ -129,7 +129,7 @@ function clickedNumber(n) {
             selectedElement.innerText = n;
             numero += n;
             selectedElement.classList.remove('pisca');
-            if (selectedElement.nextElementSibling != null) {
+            if (selectedElement.nextElementSibling) {
                 selectedElement.nextElementSibling.classList.add('pisca');
             }
         }
