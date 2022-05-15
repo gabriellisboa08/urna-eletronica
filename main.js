@@ -62,6 +62,11 @@ function mostrarCandidatosDisponiveis() {
     if (divPai.children) {
         divPai.innerHTML = '';
     }
+
+    etapa == 1 ? opçõesdisponíveis(vereadores) : opçõesdisponíveis(prefeitos)
+    
+
+
     function opçõesdisponíveis(op) {
         op.map((m, i) => {
             let div = document.createElement('div');
@@ -86,9 +91,9 @@ function mostrarCandidatosDisponiveis() {
             divPai.appendChild(div);
         });
     }
-    etapa == 1 ? opçõesdisponíveis(vereadores) : opçõesdisponíveis(prefeitos)
     
 }
+
 
 function clickedNumber(n) {
     if (branco == true) {
